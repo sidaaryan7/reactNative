@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
+import "./home.css";
+import { Button, ButtonGroup, withTheme, Input, Icon } from "react-native-elements";
 
 const Login = ({ navigation }) => {
 	const [formData, setFormData] = useState({
@@ -36,25 +38,40 @@ const Login = ({ navigation }) => {
 	return (
 		<>
 			<View style={styles.container}>
-				<View style={styles.mainDiv}>
+				<View style={{ display: "flex", flexDirection: "column", border: "1px solid grey", borderRadius: "10px", width: "50%", height: "60%", padding: "50px", color: "#fff", background: "-webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)", background: "-o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)", background: "-moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)", background: "linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)" }}>
 					<TextInput onChange={onChangeFuc} placeholder="username" style={styles.ip} />
 					<TextInput onChange={onChangeFuc} placeholder="password" style={styles.ip} />
 					<TextInput onChange={onChangeFuc} placeholder="confirm password" style={styles.ip} />
-					<View
-						style={{
-							marginTop: "50px",
-						}}
-					>
-						<Button title="Login" onPress={() => Login()} />
+					<View>
+						{/* <Button title="Login" onPress={() => Login()} /> */}
+						<Button
+							title="LOG IN"
+							buttonStyle={{
+								backgroundColor: "#007FFF",
+								borderWidth: 2,
+								// borderColor: "white",
+								borderRadius: 30,
+							}}
+							containerStyle={{
+								width: 270,
+								marginHorizontal: 0,
+								marginVertical: 30,
+							}}
+							titleStyle={{ fontWeight: "bold" }}
+							onPress={() => Login()}
+						/>
 					</View>
 
-					<View
-						style={{
-							marginTop: "30px",
+					<Button
+						containerStyle={{
+							width: 200,
+							marginHorizontal: 40,
+							marginVertical: 10,
 						}}
-					>
-						<Button title="Forget Password" />
-					</View>
+						title="Forget Password"
+						type="clear"
+						titleStyle={{ color: "white" }}
+					/>
 				</View>
 			</View>
 		</>
@@ -70,6 +87,7 @@ const styles = StyleSheet.create({
 	},
 
 	mainDiv: {
+		background: "red",
 		display: "flex",
 		flexDirection: "column",
 		border: "1px solid grey",
@@ -82,6 +100,23 @@ const styles = StyleSheet.create({
 	ip: {
 		marginTop: "10px",
 		marginBottom: "10px",
+		height: 40,
+		width: "100%",
+		margin: 12,
+		borderWidth: 1,
+		borderRadius: "30px",
+		backgroundColor: "#f8f8ff",
+		border: "none",
+		padding: 10,
+		color: "grey",
+	},
+
+	purple: {
+		color: "#fff",
+		background: "-webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
+		background: "-o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
+		background: "-moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
+		background: "linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
 	},
 });
 

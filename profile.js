@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Button, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { Avatar, Button, Text } from "react-native-elements";
 
 const Profile = ({ navigation }) => {
 	let fData = localStorage.getItem("fData");
@@ -13,13 +14,17 @@ const Profile = ({ navigation }) => {
 	return (
 		<>
 			<View style={styles.container}>
-				<View style={styles.mainDiv}>
+				<View style={{ display: "flex", flexDirection: "column", border: "1px solid grey", borderRadius: "10px", width: "50%", height: "60%", padding: "50px", background: "-webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)", background: "-o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)", background: "-moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)", background: "linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)" }}>
 					<View style={styles.subDiv1}>
-						<Image height={"50px"} source={require("./assets/download.png")}></Image>
+						<Avatar size={64} rounded source={"https://uifaces.co/our-content/donated/6MWH9Xi_.jpg"} />
 						<Text
 							style={{
 								paddingTop: "10px",
 								paddingBottom: "10px",
+							}}
+							h4
+							h4Style={{
+								color: "white",
 							}}
 						>
 							Name
@@ -29,13 +34,17 @@ const Profile = ({ navigation }) => {
 								paddingTop: "10px",
 								paddingBottom: "10px",
 							}}
+							h4
+							h4Style={{
+								color: "white",
+							}}
 						>
 							@{pData.userName !== "" ? pData.userName : "username"}
 						</Text>
 					</View>
 					<View
 						style={{
-							borderBottomColor: "black",
+							borderBottomColor: "grey",
 							borderBottomWidth: 1,
 						}}
 					/>
@@ -49,6 +58,7 @@ const Profile = ({ navigation }) => {
 							style={{
 								borderBottomColor: "grey",
 								borderBottomWidth: 1,
+								marginHorizontal: "10px",
 							}}
 						/>
 						<View style={styles.com}>
@@ -60,6 +70,7 @@ const Profile = ({ navigation }) => {
 							style={{
 								borderBottomColor: "grey",
 								borderBottomWidth: 1,
+								marginHorizontal: "10px",
 							}}
 						/>
 
@@ -72,6 +83,7 @@ const Profile = ({ navigation }) => {
 							style={{
 								borderBottomColor: "grey",
 								borderBottomWidth: 1,
+								marginHorizontal: "10px",
 							}}
 						/>
 
@@ -84,6 +96,7 @@ const Profile = ({ navigation }) => {
 							style={{
 								borderBottomColor: "grey",
 								borderBottomWidth: 1,
+								marginHorizontal: "10px",
 							}}
 						/>
 
@@ -99,10 +112,25 @@ const Profile = ({ navigation }) => {
 					style={{
 						paddingTop: "10px",
 						paddingBottom: "10px",
-						width: "50%",
+						width: "70%",
 					}}
 				>
-					<Button title="Logout" onPress={() => Logout()}></Button>
+					<Button
+						title="Logout"
+						buttonStyle={{
+							backgroundColor: "#007FFF",
+							borderWidth: 2,
+							// borderColor: "white",
+							borderRadius: 30,
+						}}
+						containerStyle={{
+							width: 270,
+							marginHorizontal: 120,
+							marginVertical: 0,
+						}}
+						titleStyle={{ fontWeight: "bold" }}
+						onPress={() => Logout()}
+					/>
 				</View>
 			</View>
 		</>
@@ -125,6 +153,10 @@ const styles = StyleSheet.create({
 		width: "50%",
 		height: "60%",
 		padding: "50px",
+		background: "-webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
+		background: "-o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
+		background: "-moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
+		background: "linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%)",
 	},
 
 	subDiv1: {
@@ -136,6 +168,7 @@ const styles = StyleSheet.create({
 		display: "flex",
 	},
 	com: {
+		color: "white",
 		display: "flex",
 		flexDirection: "row",
 		justifyContent: "space-between",
